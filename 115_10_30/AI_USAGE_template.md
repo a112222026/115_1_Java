@@ -21,3 +21,8 @@
 | 使用目的與提問摘要 | 檢查「指令固定 0–3，所以 counts 不需範圍檢查」；沒有向真實 AI 提問 |
 | AI 建議與本人處理 | 我拒絕這個建議：日誌也記無效指令。我恢復 command >= 0 && command < counts.length，再累加 counts[command] |
 | 實際驗證結果 | 副本使用 {3,9,0}，修改前在 counts[9] 越界；恢復檢查後 counts=[1,0,0,1]、steps=3、ok=0、rejected=2、ignored=0，結果 RETURNED。重測 {1,1,2} 得 6/5/3 SUCCESS；完整輸出記在 LAB_REPORT F3 |
+------------------------------------------------------------------------------
+Todo1:https://picgocloud.com/m/x8dq0dj4/6e0cf4b7-1b70-47d3-91c2-7dd51c35a7a6.png
+Todo2:https://picgocloud.com/m/x8dq0dj4/f1e9fd58-455b-4fe7-976f-fc9503cf91ef.png
+Todo3:https://picgocloud.com/m/x8dq0dj4/461395d8-1199-4799-9712-7e934d1d064d.png
+Todo4&5:https://picgocloud.com/m/x8dq0dj4/37b70bb9-ec10-4d0a-803e-8e4658f8653c.png
