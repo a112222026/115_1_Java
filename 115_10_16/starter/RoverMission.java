@@ -2,8 +2,13 @@ import java.util.Scanner;
 
 public class RoverMission {
     public static void main(String[] args) {
+        String scenario = "夜巡任務：沙塵暴後狀態檢查";
+        String roverName = "赤砂號";
+        char zone = 'D';
         Scanner input = new Scanner(System.in);
-        runMission(input, 20, 0);
+        System.out.println("情境：" + scenario);
+        System.out.println("探測車：" + roverName + "；區域：" + zone);
+        runMission(input, 7, 0);
         input.close();
     }
 

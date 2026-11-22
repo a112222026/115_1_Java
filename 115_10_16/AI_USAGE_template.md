@@ -27,3 +27,5 @@
 ### 範例附圖
 
 ![AI 使用紀錄範例附圖](https://raw.githubusercontent.com/shuochenghu/115_1_Java_Tutorial/main/img/test.png)
+情境:https://picgocloud.com/m/x8dq0dj4/7967e22a-d1d6-4fb1-b3f2-3cc370261dc1.png
+修改程式:https://picgocloud.com/m/x8dq0dj4/b38618f0-43bf-4c84-9929-b95932b50c7e.png
