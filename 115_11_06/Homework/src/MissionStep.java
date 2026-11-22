@@ -26,6 +26,6 @@ public class MissionStep {
 
     public boolean isSuccessful() {
         // TODO 3：以內容比較判斷本物件的 result 是否為 OK。
-        return false;
+        return "OK".equals(result);
     }
 }

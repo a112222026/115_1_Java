@@ -97,12 +97,24 @@ public class MissionLog {
     static void printReplay(ArrayList<MissionStep> history) {
         System.out.println("=== replay ===");
         // TODO 5：依索引取出 MissionStep，以 getter 印出與第四週相同的逐步回放。
+        for (int i = 0; i < history.size(); i++) {
+            MissionStep step = history.get(i);
+            System.out.println("step " + (i + 1) + ": command=" + step.getCommand()
+                    + ", result=" + step.getResult() + ", energy=" + step.getEnergy());
+        }
     }
 
     static void printSummary(int scriptLength, ArrayList<MissionStep> history) {
         int ok = 0;
         int returned = 0;
         // TODO 6：走訪 history，計算 OK 與 RETURN 筆數；後面的摘要與最低值已提供。
+        for (MissionStep step : history) {
+            if (step.isSuccessful()) {
+                ok++;
+            } else if ("RETURN".equals(step.getResult())) {
+                returned++;
+            }
+        }
         int steps = history.size();
         int rejected = steps - ok - returned;
         int ignored = scriptLength - steps;

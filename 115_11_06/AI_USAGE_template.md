@@ -21,3 +21,9 @@ AI 的正確宣稱不能代替編譯執行。觀看教師展示只能記「教�
 | 目的與提問摘要 | 判讀「把電池本身存進歷史，之後再讀能源」是否保留當時狀態 |
 | 建議與本人處理 | 我拒絕這項建議；兩個索引指向同一電池，不是兩個時間點的快照。在副本重現後，恢復每步建立StepCard並保存當時能源 |
 | 本人實際驗證 | SnapshotDemo錯誤副本印出19/19及same object=true；恢復後兩筆command/energy為1/14、3/19，current=19、separate records=true。再跑{1,1,2}得6/5/3 SUCCESS、{3,9,0}得20/0/0 RETURNED，完整輸出放LAB_REPORT F3 |
+-------------------------------------------------------------------------
+Todo1&2:https://picgocloud.com/m/x8dq0dj4/315d7490-7493-45d2-9b37-f85c012ac4e6.png
+Todo3:https://picgocloud.com/m/x8dq0dj4/9d5344ae-ac59-42a1-8b17-ae869f656229.png
+Todo5:https://picgocloud.com/m/x8dq0dj4/65b14e15-7185-4d31-bd94-bafc5a3e4127.png
+Todo6:https://picgocloud.com/m/x8dq0dj4/fe712b19-61bc-4331-871a-6abc7799548d.png
+皆已完成
