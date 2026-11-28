@@ -9,6 +9,7 @@ public class HeavyRover extends Rover {
     public static final int DRILL_YIELD = 3;
 
     // TODO 2：只新增鑽探次數，不再宣告 energy、samples、actionCount。
+    private int drillCount;
     // 在這裡補欄位。
 
     // 建構子：建立重型探測車；能源與樣本交給父類別 Rover 保存。
@@ -16,16 +17,35 @@ public class HeavyRover extends Rover {
         super(energy, samples);
         // 上一行已寫好：先呼叫 Rover 的建構子，由 Rover 保存能源、樣本，並把行動次數設為 0。
         // 接著請在這裡設定 HeavyRover 自己才有的欄位：鑽探次數的初始值。
+        drillCount = 0;
     }
 
     // getDrillCount：回傳成功鑽探的次數。
     // 目前先固定回傳 0，讓程式可以編譯執行。
     // 在上方補好鑽探次數欄位後，改成回傳那個欄位。
-    public int getDrillCount() { return 0; }
+    public int getDrillCount() { return drillCount; }
 
     // drill：鑽探一次，回傳結果字串（「成功」「能源不足」或「任務已停止」）。
     // 這是 HeavyRover 新增的公開入口，不經過 execute。
     // TODO 3：新公開入口自己檢查停止。先全部拒絕條件，再更新整組狀態。
-    public String drill() {
-        return "";
+   public String drill() {
+    // 1. 任務停止時直接拒絕
+    if (isStopped()) {
+        return "任務已停止";
     }
+
+    // 2. 鑽探需要扣 8 格能源
+    if (!spendEnergy(DRILL_COST)) {
+        return "能源不足";
+    }
+
+    // 3. 成功後一次增加 3份樣本
+    addSamples(DRILL_YIELD);
+
+    // 4. 更新兩種行動次數
+    countAction();
+    drillCount++;
+
+    return "成功";
+}
+}

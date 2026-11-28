@@ -49,10 +49,13 @@ public class Rover {
     // 成功就扣除並回傳 true；否則回傳 false，能源不變。
     // TODO 1：支援擴充及局部重構。先完成扣能源，跟做 explore，再獨立改 scan。
     // 這個方法只守住扣能源規則，不負責停止、加樣本或計次。
-    protected boolean spendEnergy(int amount) {
-        // 佔位：尚未完成。本方法目前未接上 explore、scan，所以舊任務仍可執行。
+  protected boolean spendEnergy(int amount) {
+    if (amount <= 0 || amount > energy) {
         return false;
     }
+    energy -= amount;
+    return true;
+}
 
     // addSamples：增加 amount 份樣本。只接受正數，0 或負數會被忽略。
     // 已提供；停止檢查與「整組行動」仍由呼叫它的行動方法（例如 explore）負責。
@@ -67,21 +70,23 @@ public class Rover {
 
     // explore：探索。能源至少 6 格才執行：扣 6 格、加 2 份樣本、行動次數加 1；否則回「能源不足」。
     private String explore() {
-        // 完成 spendEnergy 後，依講義 D2 示範改寫這三項更新。
-        if (energy < 6) { return "能源不足"; }
-        energy -= 6;
-        samples += 2;
-        actionCount++;
-        return "成功";
+    if (!spendEnergy(6)) {
+        return "能源不足";
     }
+    
+    addSamples(2);
+    countAction();
+    return "成功";
+}
 
     // scan：掃描。能源至少 2 格才執行：扣 2 格、加 1 份樣本、行動次數加 1；否則回「能源不足」。
     private String scan() {
         // 模仿 explore 的重構；目前保留上週完成碼，不代表已完成本週要求。
-        if (energy < 2) { return "能源不足"; }
-        energy -= 2;
-        samples++;
-        actionCount++;
+        if (!spendEnergy(2)) {
+            return "能源不足";
+        }
+        addSamples(1);
+        countAction();
         return "成功";
     }
 
