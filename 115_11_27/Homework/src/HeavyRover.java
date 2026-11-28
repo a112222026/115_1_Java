@@ -28,9 +28,12 @@ public class HeavyRover extends Rover {
 
     // TODO 4：自行寫出覆寫 execute(int command) 的方法，讓任務腳本可以下指令 4（鑽探）。
     @Override
-    public String execute(int command){
-
+public String execute(int command) {
+    if (command == 4) {
+        return drill();
     }
+    return super.execute(command);
+}
     // 指令 4 交給下方已提供的 drill()；其他指令交回父類別原本的 execute 處理，
     // 不重抄父類別的 switch，也不修改 Rover 或 Mission。
     // 完成後執行 DrillMissionTry，應全部顯示「相符」。

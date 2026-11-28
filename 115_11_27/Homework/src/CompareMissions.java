@@ -8,10 +8,17 @@ public class CompareMissions {
     // main：程式進入點。準備固定腳本 {1, 1, 2}，讓兩台新車各執行一次任務並印出報表。
     public static void main(String[] args) {
         int[] script = {1, 1, 2};
-        // TODO 3：兩次分別建立Rover型態參考、新車與新Mission。
-        // 一般車與重型車各run同一份script一次，再呼叫已提供的show，
-        // 標籤分別用"一般探測車"與"重型探測車"。
-        System.out.println("尚未完成：請建立兩個獨立任務");
+        Rover rover1 = new Rover(20, 0);
+        Mission mission1 = new Mission(rover1);
+
+        Rover rover2 = new HeavyRover(20, 0);
+        Mission mission2 = new Mission(rover2);
+
+        mission1.run(script);
+        mission2.run(script);
+
+        show("一般探測車", rover1, mission1, script.length);
+        show("重型探測車", rover2, mission2, script.length);
     }
 
     // show：印出一台車的完整報表：標題、任務回放、指令次數、摘要、最終狀態與電量百分比。

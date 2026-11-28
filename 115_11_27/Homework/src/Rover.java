@@ -76,7 +76,7 @@ public class Rover {
     private String explore() {
         if (!spendEnergy(6)) { return "能源不足"; }
         // TODO 1：改用 exploreYield() 取得產量，保留其餘流程。
-        addSamples(2);
+        addSamples(exploreYield());
         countAction();
         return "成功";
     }
